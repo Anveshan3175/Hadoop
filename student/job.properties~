@@ -1,0 +1,4 @@
+namenode=hdfs://localhost.localdomain:8020
+jobtracker=localhost.localdomain:8021
+oozie.wf.application.path=${namenode}/user/cloudera/oozie/student
+queueName=default

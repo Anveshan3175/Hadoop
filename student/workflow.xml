@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow-app name='student-work-flow' xmlns="uri:oozie:workflow:0.1">
+    <start to='marksTotal' />
+    <action name="marksTotal">
+        <map-reduce>
+            <job-tracker>${jobtracker}</job-tracker>
+            <name-node>${namenode}</name-node>
+            <configuration>
+                <property>
+                    <name>mapred.mapper.class</name>
+                    <value>com.anvesh.student.TotalMarksMapper</value>
+                </property>
+                <property>
+                    <name>mapred.reducer.class</name>
+                    <value>com.anvesh.student.TotalMarksReducer</value>
+                </property>
+                <property>
+                    <name>mapred.map.tasks</name>
+                    <value>1</value>
+                </property>
+                <property>
+                    <name>mapred.input.dir</name>
+		    <value>/user/cloudera/oozie/student/ip</value>
+                    <!--<value>${input}</value> -->
+                </property>
+                <property>
+                    <name>mapred.output.dir</name>
+		    <value>/user/cloudera/oozie/student/op</value>
+                    <!--<value>/usr/foo/${wf:id()}/temp1</value>-->
+                </property>
+            </configuration>
+        </map-reduce>
+        <ok to="end" />
+        <error to="kill" />
+    </action>
+    <kill name="kill">
+	<message>Map/Reduce failed, error message[${wf:errorMessage()}]</message>
+    </kill>
+    <end name='end'/>
+</workflow-app>
