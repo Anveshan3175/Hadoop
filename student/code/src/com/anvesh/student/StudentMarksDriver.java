@@ -27,6 +27,11 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
  * hadoop fs -rm -r /user/cloudera/oozie/student/op/
  * 
  * hadoop fs -copyFromLocal /home/cloudera/hadoop/oozie/student/totalMarks.jar /user/cloudera/oozie/student/lib/
+ * hadoop fs -copyFromLocal /home/cloudera/hadoop/oozie/student/job.properties /user/cloudera/oozie/student/
+ * hadoop fs -copyFromLocal /home/cloudera/hadoop/oozie/student/workflow.xml /user/cloudera/oozie/student/
+ * 
+ * oozie job -config /home/cloudera/hadoop/oozie/student/job.properties -run
+ * oozie job -info 0000000-170114173021076-oozie-oozi-W
  */
 public class StudentMarksDriver {
 
@@ -73,6 +78,7 @@ public class StudentMarksDriver {
 		
 		@Override
 		public void map(LongWritable key,Text line,Context ctx) throws IOException, InterruptedException{
+			System.out.println("----------------------------IN the mapper---------------------------");
 			String[] tokens = line.toString().split(",");
 			if(tokens.length == 3) {
 				ctx.write(new Text(tokens[0]), new IntWritable(Integer.parseInt(tokens[2])));
@@ -84,6 +90,7 @@ public class StudentMarksDriver {
 		
 		@Override
 		public void reduce(Text studentName,Iterable<IntWritable> subMarksItr,Context ctx) throws IOException, InterruptedException{
+			System.out.println("----------------------------IN the reducer---------------------------");
 			int subMarks = 0,total = 0;
 			StringBuilder output = new StringBuilder();
 			while(subMarksItr.iterator().hasNext()){

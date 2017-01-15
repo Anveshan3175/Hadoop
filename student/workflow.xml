@@ -5,14 +5,17 @@
         <map-reduce>
             <job-tracker>${jobtracker}</job-tracker>
             <name-node>${namenode}</name-node>
+	   <prepare>
+		<delete path="${namenode}/user/cloudera/oozie/student/op"/>
+	   </prepare>
             <configuration>
                 <property>
-                    <name>mapred.mapper.class</name>
-                    <value>com.anvesh.student.TotalMarksMapper</value>
+		    <name>mapreduce.map.class</name>
+                    <value>com.anvesh.student.StudentMarksDriver$TotalMarksMapper</value>
                 </property>
                 <property>
-                    <name>mapred.reducer.class</name>
-                    <value>com.anvesh.student.TotalMarksReducer</value>
+ 		    <name>mapreduce.reduce.class</name>
+                    <value>com.anvesh.student.StudentMarksDriver$TotalMarksReducer</value>
                 </property>
                 <property>
                     <name>mapred.map.tasks</name>
@@ -20,14 +23,48 @@
                 </property>
                 <property>
                     <name>mapred.input.dir</name>
-		    <value>/user/cloudera/oozie/student/ip</value>
+		    <value>/user/${wf:user()}/oozie/student/ip</value>
                     <!--<value>${input}</value> -->
                 </property>
                 <property>
                     <name>mapred.output.dir</name>
-		    <value>/user/cloudera/oozie/student/op</value>
-                    <!--<value>/usr/foo/${wf:id()}/temp1</value>-->
+		    <value>/user/${wf:user()}/${output}</value>
                 </property>
+
+ 		<property>
+               		<name>mapred.job.queue.name</name>
+               		<value>${queueName}</value>
+           	 </property>
+            	<property>
+               		<name>mapred.output.key.class</name>
+               		<value>org.apache.hadoop.io.Text</value>
+            	</property>
+            	<property>
+               		<name>mapred.output.value.class</name>
+               		<value>org.apache.hadoop.io.IntWritable</value>
+            	</property> 
+   		<!--<property>
+               		<name>mapred.map.tasks</name>
+               		<value>1</value>
+            	</property>
+  		<property>
+               		<name>mapred.reduce.tasks</name>
+               		<value>1</value>
+            	</property>
+		<property> 
+		  <name>mapreduce.job.reduces</name> 
+		  <value>1</value> 
+		</property> -->
+           <property>
+               <name>mapred.reducer.new-api</name>
+               <value>true</value>
+            </property>
+            <property>
+               <name>mapred.mapper.new-api</name>
+               <value>true</value>
+            </property> 
+
+
             </configuration>
         </map-reduce>
         <ok to="end" />
