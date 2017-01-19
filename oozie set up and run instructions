@@ -1,3 +1,27 @@
-First create project
+In cloudera CDH  (refer empl project in this oozie project)
+
+First create project for Hive
   a) Create job.properties.
-        - Get namenode and jobtracker details from hdfs-site.xml..etc(or opt)/hadoop/conf/
+        - Get namenode and jobtracker details from hdfs-site.xml..etc(or opt)/hadoop/conf/  
+  b) Create workflow.xml
+        - Ensure variables in job.properties and in workflow.xml match
+        - If you are unable to invoke any oozie even after running oozie job, check oozie logs from hive since logs will not be generated 
+          for jobs
+        - Use proper oozie schema , 0.4 version
+  c) Create input or output folder in the root directory of the project.
+        - You can move the content of table to directory in the HDFS. Thats why we use output directory
+  d) Copy the entire oozie project from local to HDFS
+  e) In the oozie run command, run the job.properties pointing to local one
+  
+  
+  
+  
+  
+  
+  
+  1. export OOZIE_URL=http://localhost:11000/oozie
+  2. hadoop fs -put /home/cloudera/oozie-assignments    /user/cloudera/
+  3. hadoop fs -put /home/cloudera/Downloads/OozieAssignment/oozie-assignments/pseudo_facebook.tsv  /user/cloudera/Datasets/Facebook/
+  4. oozie job -config /home/cloudera/Downloads/OozieAssignment/oozie-assignments/Facebook/job.properties -run
+  5. oozie job -info <JOB_ID>
+  6. hadoop fs -cat /user/cloudera/oozie-assignments/output-data/facebook-mapred-likes-output/part-m-00000
