@@ -1,0 +1,3 @@
+First create project
+  a) Create job.properties.
+        - Get namenode and jobtracker details from hdfs-site.xml..etc(or opt)/hadoop/conf/
