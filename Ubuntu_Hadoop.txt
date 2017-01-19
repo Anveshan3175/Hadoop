@@ -199,11 +199,12 @@ sbt sbt-version
 $ wget https://raw.github.com/snim2/gedit-scala-plugin/master/install.sh
 $ chmod +x install.sh
 $ ./install.sh
-
-
-https://www.youtube.com/watch?v=OMo--kfkjyU&list=PLbu9W4c-C0iB--RNIzTXVksxQEI4vLK5-&index=8
 ============================================
+https://www.youtube.com/watch?v=OMo--kfkjyU&list=PLbu9W4c-C0iB--RNIzTXVksxQEI4vLK5-&index=8
+https://github.com/dgadiraju/code/blob/master/hadoop/edw/cloudera/sqoop/sqoop_demo.txt
 https://hadooptutorial.wikispaces.com/Custom+partitioner
+============================================
+
 This example illustrates how to use customized partitioner in a MapReduce program. The partitioning phase takes place after the map phase and before the reduce phase. The number of partitions is equal to the number of reducers. The data gets partitioned across the reducers according to the partitioning function[1] . The difference between a partitioner and a combiner is that the partitioner divides the data according to the number of reducers so that all the data in a single partition gets executed by a single reducer. However, the combiner functions similar to the reducer and processes the data in each partition. The combiner is an optimization to the reducer. The default partitioning function is the hash partitioning function where the hashing is done on the key. However it might be useful to partition the data according to some other function of the key or the value.
 
 Spark Programs :
