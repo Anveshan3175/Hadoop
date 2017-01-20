@@ -13,6 +13,10 @@ Commands:
 uname -a  : To display os used
 hadoop version : Hadoop 2.6.0-cdh5.8.0
 spark-shell --version : 1.6.0
+flume-ng version : Flume 1.6.0-cdh5.8.0
+impala-shell : 2.6.0-cdh5.8.0
+avro-tools :
+
 
 
 Links:
