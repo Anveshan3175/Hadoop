@@ -5,4 +5,13 @@ the file itself and VirtualBox should handle it from there.
   AddressManager Node  10.0.2.15
   Worker Node 1  10.0.2.15
   
+  http://quickstart.cloudera:7180
+  Username: cloudera
+  Password: cloudera
+
+Commands:
+uname -a  : To display os used
+
+
+Links:
   http://www.cloudera.com/documentation/enterprise/latest/topics/introduction.html
