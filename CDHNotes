@@ -11,6 +11,8 @@ the file itself and VirtualBox should handle it from there.
 
 Commands:
 uname -a  : To display os used
+hadoop version : Hadoop 2.6.0-cdh5.8.0
+spark-shell --version : 1.6.0
 
 
 Links:
