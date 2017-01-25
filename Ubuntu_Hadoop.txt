@@ -196,6 +196,9 @@ sbt sbt-version
 5.run
 6.select what you want to run
 
+--Another way of running sbt with command line args
+sbt "run-main Hello try"   -- run-main is command option,Hello is object name,try - is CLI arg
+
 $ wget https://raw.github.com/snim2/gedit-scala-plugin/master/install.sh
 $ chmod +x install.sh
 $ ./install.sh
