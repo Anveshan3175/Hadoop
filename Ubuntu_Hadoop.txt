@@ -214,3 +214,23 @@ Spark Programs :
 val sampleFile = sc.textFile("sample.txt")
 val linesWithSample = sampleFile.filter(line => line.contains("sample"))
 linesWithSample.count()
+
+
+============================================
+Mysql set up
+sudo apt-get update
+sudo apt-get install mysql-server
+root/anvesh
+/usr/bin/mysql_secure_installation
+sudo iptables -I INPUT -p tcp --dport 3306 -m state --state NEW,ESTABLISHED -j ACCEPT
+sudo iptables -I OUTPUT -p tcp --sport 3306 -m state --state ESTABLISHED -j ACCEPT
+sudo service mysql start
+
+mysql shell
+/usr/bin/mysql -u root -p
+anvesh
+
+
+
+
+
