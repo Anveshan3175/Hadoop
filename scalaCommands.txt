@@ -1,0 +1,37 @@
+scala> for(j <- 1 to 10){
+     |   if(j % 2 == 0) total = total + j
+     | }
+
+scala> (1 to 10).reduce(_ + _)
+res12: Int = 55
+
+scala> (1 to 10).filter(_ % 2 == 0)
+res20: scala.collection.immutable.IndexedSeq[Int] = Vector(2, 4, 6, 8, 10)
+
+scala> (100 to 250).filter(_ % 2 == 1).reduce(_ + _)
+res22: Int = 13125
+
+scala> (100 to 250).map(_ - 100).fold(0)(_ + _)
+res24: Int = 11325
+
+scala> (100 to 250).map(_ - 100).fold(10)(_ + _)
+res25: Int = 11335
+
+scala> (100 to 250).reduce((min,j) => if(min > j) min else j )
+res30: Int = 250
+
+scala> (100 to 250).reduce((min,j) => if(min > j) j else min )
+res31: Int = 100
+
+scala> def minf(a:Int,b:Int):Int={
+     | if (a > b) b else a }
+minf: (a: Int, b: Int)Int
+
+scala> (34 to 78).reduce(minf)
+res32: Int = 34
+
+scala> val maxf = (a:Int,b:Int) => if(a > b) a else b
+maxf: (Int, Int) => Int = <function2>
+
+scala> (567 to 890).reduce(maxf)
+res33: Int = 890
