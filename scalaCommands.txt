@@ -35,3 +35,15 @@ maxf: (Int, Int) => Int = <function2>
 
 scala> (567 to 890).reduce(maxf)
 res33: Int = 890
+
+scala> val intList = List(1,2,3,4)
+intList: List[Int] = List(1, 2, 3, 4)
+
+scala> val (lower,higher) = intList partition (_ > 2)
+lower: List[Int] = List(3, 4)
+higher: List[Int] = List(1, 2)
+
+scala> val anyList:List[Any] = List(1,2,3,'f')
+anyList: List[Any] = List(1, 2, 3, 102)
+
+
