@@ -46,4 +46,16 @@ higher: List[Int] = List(1, 2)
 scala> val anyList:List[Any] = List(1,2,3,'f')
 anyList: List[Any] = List(1, 2, 3, 102)
 
+scala> val tuples = (1,'r',"Hi There",23.5)
+tuples: (Int, Char, String, Double) = (1,r,Hi There,23.5)
 
+scala> val tuples = (1,'r',"Hi There",23.5)
+tuples: (Int, Char, String, Double) = (1,r,Hi There,23.5)
+
+scala> val intList:List[Int] = List(1,2,3,5)
+intList: List[Int] = List(1, 2, 3, 5)
+
+scala> intList(2)
+res0: Int = 3
+
+Point: Range and List are different.(1 to 10) is range and List(1,2,3,4,5,6,7,8,9,10) is List
