@@ -59,3 +59,17 @@ scala> intList(2)
 res0: Int = 3
 
 Point: Range and List are different.(1 to 10) is range and List(1,2,3,4,5,6,7,8,9,10) is List
+
+scala> import scala.util.Try
+import scala.util.Try
+
+scala> Try{ "123x".toInt }.isSuccess
+res3: Boolean = false
+
+scala> val strList:List[String] = List("2","56","89","tre")
+strList: List[String] = List(2, 56, 89, tre)
+
+scala> strList.filter(a => (Try{ a.toInt }.isSuccess))
+res14: List[String] = List(2, 56, 89)
+
+
