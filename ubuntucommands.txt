@@ -1,1 +1,5 @@
-Shorten command line (bash) prompt : PS1='\u:\W\$ '
+- Shorten command line (bash) prompt : PS1='\u:\W\$ '
+- To see env variables: env
+- To see profile :cat ~/.profile
+- To see bash : cat ~/.bashrc
+- To grep anything in bashrc : cat ~/.bashrc|grep -i scala
