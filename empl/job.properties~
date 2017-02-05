@@ -1,0 +1,11 @@
+namenode=hdfs://localhost.localdomain:8020
+jobtracker=localhost.localdomain:8021
+projectRoot=oozie/empl
+oozie.wf.application.path=${namenode}/user/${user.name}/${projectRoot}
+
+oozie.use.system.libpath=true
+oozie.libpath=oozie/empl/lib
+queueName=default
+output=${projectRoot}/op
+inputPath=${namenode}/user/${user.name}/${projectRoot}/ip/*
+outputPath=${namenode}/user/${user.name}/${projectRoot}/op
